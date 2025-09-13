@@ -1,0 +1,58 @@
+<div class="parallax mb-5">
+  <div class="container text-center px-5 py-5 justify-content-center">
+    <div class="animated-texts bounceIn">
+      <h1>
+        Experience the Best hospitality at <span class="hotel-color">HAPPY Hotel</span>
+      </h1>
+      <h3>We offer the best services for all your needs.</h3>
+    </div>
+  </div>
+</div>
+
+
+<div class="mb-2">
+  <!-- Header Section -->
+  <div class="header d-flex align-items-center justify-content-center">
+    <h1 class="header-title animated-texts">Our Services</h1>
+  </div>
+
+  <!-- Hotel Name and 24-Hour Info -->
+  <div class="container mt-3">
+    <div class="row">
+      <h4 class="text-center">
+        Services at <span class="hotel-color"> HAPPY - </span>Hotel
+        <span class="gap-2 ms-2">
+          <fa-icon [icon]="faClock"></fa-icon> 24-Hour Front Desk
+        </span>
+      </h4>
+    </div>
+    <hr />
+
+    <!-- Services Grid -->
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mt-2">
+      <div class="col" *ngFor="let service of services">
+        <div class="card h-70 shadow-sm">
+          <div class="card-body text-center">
+            <fa-icon [icon]="service.icon" size="2x" class="mb-2 hotel-color"></fa-icon>
+            <h5 class="card-title">{{ service.title }}</h5>
+            <p class="card-text">{{ service.description }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr/>
+  </div>
+
+  
+  <!-- Parallax Callout -->
+  <div class="parallax d-flex align-items-center justify-content-center my-4">
+    <h2>Experience comfort & class with our premium services!</h2>
+  </div>
+
+</div>
+
+<footer class="footer">
+  <div class="footer-container">
+    <p>&copy; {{ currentYear }} HAPPY Hotel</p>
+  </div>
+</footer>

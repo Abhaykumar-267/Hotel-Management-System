@@ -1,0 +1,10 @@
+/* Optional custom styles */
+.page-item.active .page-link {
+  background-color: #007bff;
+  border-color: #007bff;
+  color: white;
+}
+.page-link {
+  min-width: 40px;
+  text-align: center;
+}

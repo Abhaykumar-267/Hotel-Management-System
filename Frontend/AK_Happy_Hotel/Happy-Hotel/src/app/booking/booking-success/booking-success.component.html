@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="header-banner">
+    <div class="overlay"></div>
+    <div class="animated-texts overlay-content">
+      <h1>
+        Booking Success
+      </h1>
+    </div>
+  </div>
+
+  <div class="mt-5">
+    <div *ngIf="message; else errorBlock">
+      <h3 class="text-success">Booking Success!....</h3>
+      <p class="text-success">{{ message }}</p>
+    </div>
+
+    <ng-template #errorBlock>
+      <h3 class="text-danger">Error Booking Room!</h3>
+      <p class="text-danger">{{ error }}</p>
+    </ng-template>
+  </div>
+</div>

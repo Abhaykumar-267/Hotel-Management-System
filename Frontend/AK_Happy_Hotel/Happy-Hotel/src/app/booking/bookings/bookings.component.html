@@ -1,0 +1,19 @@
+<section style="background-color: whitesmoke;">
+  <div class="header-banner">
+    <div class="overlay"></div>
+    <div class="animated-texts overlay-content">
+      <h1>
+        Existing BooKings
+      </h1>
+    </div>
+  </div>
+  <div *ngIf="error" class="text-danger">{{ error }}</div>
+
+  <div *ngIf="isLoading">Loading existing bookings</div>
+    <app-bookings-table
+        *ngIf="!isLoading"
+        [bookingInfo]="bookingInfo"
+        (bookingCancel)="handleBookingCancellation($event)">
+    </app-bookings-table>
+
+</section>

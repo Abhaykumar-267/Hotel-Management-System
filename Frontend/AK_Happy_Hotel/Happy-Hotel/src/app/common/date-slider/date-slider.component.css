@@ -1,0 +1,27 @@
+.slider-wrapper {
+  display: flex;
+  gap: 20px;
+}
+
+.shortcuts {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.shortcuts button {
+  padding: 5px 8px;
+  cursor: pointer;
+  background: #ffffff;
+  border: 1px solid #ccc;
+  transition: 0.3s;
+}
+.shortcuts button:hover {
+  background: #f4f4f4;
+}
+
+.calendar-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

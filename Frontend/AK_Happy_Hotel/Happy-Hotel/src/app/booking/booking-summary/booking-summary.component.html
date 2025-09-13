@@ -1,0 +1,49 @@
+<div class="row">
+  <div class="col-md-6"></div>
+  <div class="card card-body mt">
+    <h4 class="card-title hotel-color">Reservation Summary</h4>
+
+    <p>Name : <strong>{{ booking?.guestFullName }}</strong></p>
+
+    <!-- Email (token se loaded hoga) -->
+    <div class="mb-2">
+      <label>Email :</label>
+      <input type="email" class="form-control" [value]="booking?.guestEmail || userEmail" readonly />
+    </div>
+
+    <p>Check-in Date : <strong>{{ booking?.checkInDate | date: 'MMM d, y' }}</strong></p>
+    <p>Check-out Date : <strong>{{ booking?.checkOutDate | date: 'MMM d, y' }}</strong></p>
+    <p>Number of Days Booked : <strong>{{ numberOfDays }}</strong></p>
+
+    <div>
+      <h5 class="hotel-color">Number of Guest</h5>
+      <strong>Adult{{ booking?.numOfAdults > 1 ? 's' : '' }} : {{ booking?.numOfAdults }}</strong>
+      <p><strong>Children : {{ booking?.numOfChildren }}</strong></p>
+    </div>
+
+    <p>Total payment : <strong>₹{{ payment }}</strong></p>
+
+    <div *ngIf="numberOfDays > 0; else errorMessage">
+      <button
+        class="btn btn-success"
+        (click)="handleConfirmBooking()"
+        *ngIf="isFormValid && !isBookingConfirmed">
+        <ng-container *ngIf="isProcessingPayment; else confirmLabel">
+          <span class="spinner-border spinner-border-sm mr-2" role="status" aria-hidden="true"></span>
+          Booking Confirmed, redirecting to payment...
+        </ng-container>
+        <ng-template #confirmLabel>Confirm Booking & proceed to payment</ng-template>
+      </button>
+
+      <div *ngIf="isBookingConfirmed" class="d-flex justify-content-center align-items-center">
+        <div class="spinner-border text-primary" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+    </div>
+
+    <ng-template #errorMessage>
+      <p class="text-danger">Check-out date must be after check-in date.</p>
+    </ng-template>
+  </div>
+</div>

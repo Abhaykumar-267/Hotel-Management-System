@@ -1,0 +1,108 @@
+.carousel-wrapper {
+  padding: 20px;
+}
+
+.browse-link {
+  text-align: center;
+  font-size: xx-large;
+  margin-bottom: 10px;
+  color: #8e3f71;
+  font-weight: bolder;
+  cursor: pointer;
+}
+
+.room-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.room-card {
+  display: flex;
+  background: #fff;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  align-items: center;
+  justify-content: space-between;
+}
+
+.room-card img {
+  width: 220px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.room-details {
+  flex-grow: 1;
+  padding: 0 20px;
+}
+
+.room-details h3 {
+  font-size: 20px;
+  color: #8e3f71;
+  margin: 0 0 5px 0;
+}
+
+.price {
+  font-weight: bold;
+  color: #e6992b;
+}
+
+.description {
+  margin-top: 5px;
+  color: #555;
+}
+
+.room-action button {
+  background: #8e3f71;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.pagination {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.pagination button {
+  background: white;
+  border: 1px solid #ccc;
+  margin: 0 3px;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.pagination button.active {
+  background: #2563eb;
+  color: white;
+  font-weight: bold;
+}
+
+.back-button {
+  margin-top: 2rem;
+  font-size: 0.8rem;
+  padding: 0.4rem 0.8rem;
+  background-color: #868e3f;
+  border-radius: 6px;
+  display: inline-block;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  color: #fff;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.back-button:hover {
+  background-color: #bc4a4a;
+}
+
+.error{
+  color: #c93434;
+}

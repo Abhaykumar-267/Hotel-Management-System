@@ -1,0 +1,61 @@
+.existing-rooms-container {
+  padding: 20px;
+}
+
+.rooms-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+.rooms-table th, .rooms-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+.rooms-table th {
+  background-color: #f4f4f4;
+}
+
+.edit-btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.delete-btn {
+  background-color: #f44336;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.loading-text {
+  font-weight: bold;
+}
+
+.error-text {
+  color: red;
+  font-weight: bold;
+}
+
+.no-rooms {
+  margin-top: 20px;
+  font-style: italic;
+}
+
+.back-button {
+  margin-left: 5px;
+  border-radius: 10px;
+  background-color: #868e3f;
+  color: #fff;
+}
+
+#sideright{
+  margin-left: 10px;
+}

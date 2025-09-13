@@ -1,0 +1,32 @@
+<div *ngIf="results.length > 0">
+  <h5 class="text-center mt-5">Search Results</h5>
+
+  <div class="row">
+    <div
+      class="col-md-4 mb-3"
+      *ngFor="let room of paginatedResults"
+    >
+      <app-room-card [room]="room"></app-room-card>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <ng-container *ngIf="totalPages > 1">
+      <button
+        *ngFor="let page of [].constructor(totalPages); let i = index"
+        class="btn btn-outline-primary mx-1"
+        [class.active]="i + 1 === currentPage"
+        (click)="changePage(i + 1)"
+      >
+        {{ i + 1 }}
+      </button>
+    </ng-container>
+
+    <button
+      class="btn btn-secondary mt-2"
+      (click)="clearSearch()"
+    >
+      Clear Search
+    </button>
+  </div>
+</div>

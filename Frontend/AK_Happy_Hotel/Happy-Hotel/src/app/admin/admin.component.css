@@ -1,0 +1,74 @@
+.admin-container {
+  background-image: url('https://blog.architizer.com/wp-content/uploads/Heydar-ALiyev-Center-in-Baku_cropped.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 92vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.admin-overlay {
+  background-color: rgba(0, 0, 0, 0.5); /* dark overlay */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.admin-card {
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+}
+
+.admin-card h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.highlight {
+  color: #1976d2;
+}
+
+.admin-link {
+  display: block;
+  margin: 15px 0;
+  padding: 12px 20px;
+  background-color: #1976d2;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.admin-link:hover {
+  background-color: #125ca1;
+}
+
+
+.back-button {
+  margin-top: 2rem;
+  font-size: 0.8rem;
+  padding: 0.4rem 0.8rem;
+  background-color: #222;
+  border-radius: 6px;
+  display: inline-block;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  color: #fff;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.back-button:hover {
+  background-color: #444;
+}

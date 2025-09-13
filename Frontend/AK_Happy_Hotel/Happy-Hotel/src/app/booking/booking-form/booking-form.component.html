@@ -1,0 +1,72 @@
+<div class="booking-form-wrapper">
+  <div class="booking-form-container">
+    <h2>Book Your Stay</h2>
+
+    <form [formGroup]="bookingForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+  <label for="guestFullName">Full Name</label>
+  <input id="guestFullName" formControlName="guestFullName" type="text" />
+  <span *ngIf="bookingForm.get('guestFullName')?.valid && isSubmitted">✔️</span>
+  <small class="error" *ngIf="bookingForm.get('guestFullName')?.touched && bookingForm.get('guestFullName')?.invalid">
+    Full Name is required
+  </small>
+</div>
+
+      <div class="form-group">
+        <label>Email</label>
+        <p class="readonly-email">{{ currentUserEmail }}</p>
+      </div>
+
+      <div class="form-row">
+  <div class="form-group">
+    <label for="checkInDate">Check-In</label>
+    <input id="checkInDate" formControlName="checkInDate" type="date" />
+    <span *ngIf="bookingForm.get('checkInDate')?.valid && isSubmitted">✔️</span>
+    <small class="error" *ngIf="bookingForm.get('checkInDate')?.touched && bookingForm.get('checkInDate')?.invalid">
+      Check-In is required
+    </small>
+  </div>
+  <div class="form-group">
+    <label for="checkOutDate">Check-Out</label>
+    <input id="checkOutDate" formControlName="checkOutDate" type="date" />
+    <span *ngIf="bookingForm.get('checkOutDate')?.valid && isSubmitted">✔️</span>
+    <small class="error" *ngIf="bookingForm.get('checkOutDate')?.touched && bookingForm.get('checkOutDate')?.invalid">
+      Check-Out is required
+    </small>
+  </div>
+</div>
+
+      <div class="form-row">
+  <div class="form-group">
+    <label for="numOfAdults">Adults</label>
+    <input id="numOfAdults" formControlName="numOfAdults" placeholder="0" type="number" min="0" />
+    <span *ngIf="bookingForm.get('numOfAdults')?.valid && isSubmitted">✔️</span>
+    <small class="error" *ngIf="bookingForm.get('numOfAdults')?.touched && bookingForm.get('numOfAdults')?.invalid">
+      *required
+    </small>
+  </div>
+  <div class="form-group">
+    <label for="numOfChildren">Children</label>
+    <input id="numOfChildren" formControlName="numOfChildren" placeholder="0" type="number" min="0" />
+    <span *ngIf="bookingForm.get('numOfChildren')?.valid && isSubmitted">✔️</span>
+    <small class="error" *ngIf="bookingForm.get('numOfChildren')?.touched && bookingForm.get('numOfChildren')?.invalid">
+      *required
+    </small>
+  </div>
+</div>
+
+      <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+
+      <button type="submit" class="btn-book" >continue</button>
+    </form>
+  </div>
+      <div class="booking-summary" *ngIf="isSubmitted">
+        <app-booking-summary
+          [booking]="preparedBooking"
+          [payment]="calculatedPayment"
+          [isFormValid]="bookingForm.valid"
+          [onConfirm]="handleBookingConfirmed"
+        />
+      </div>
+
+</div>

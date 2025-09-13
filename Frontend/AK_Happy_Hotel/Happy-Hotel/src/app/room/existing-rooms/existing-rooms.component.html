@@ -1,0 +1,81 @@
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+/>
+<div class="container col-md-8 col-lg-6">
+  <p *ngIf="successMessage" class="alert alert-success mt-5">{{ successMessage }}</p>
+  <p *ngIf="errorMessage" class="alert alert-danger mt-5">{{ errorMessage }}</p>
+</div>
+
+<div *ngIf="isLoading">
+  <p>Loading existing rooms...</p>
+</div>
+
+<section *ngIf="!isLoading" class="mt-5 mb-5 container">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>Existing Rooms</h2>
+    <a routerLink="/admin" class="btn btn-warning" style="font-weight: bold;">← Back</a>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6 mb-2 md-mb-0">
+      <!-- <app-room-filter
+      [rooms]="rooms"
+      (filterChanged)="onFilterChange($event)">
+    </app-room-filter> -->
+
+    <div class="filter-container">
+      <label for="roomType">Filter by room type:</label>
+      <select id="roomType" [(ngModel)]="filter" (change)="applyFilter($event)">
+        <option value="" disabled selected>Select a room type to filter</option> 
+        <option *ngFor="let type of roomTypes" [value]="type">{{ type }}</option>
+      </select>
+      <button class="back-button" (click)="clearFilter()">Clear</button>
+    </div>
+
+    </div>
+    <div class="col-md-6 d-flex justify-content-end align-items-center">
+      <a routerLink="/add-room" class="btn btn-outline-info" style="font-weight: bold;">
+        <i class="fa fa-plus"></i> Add Room
+      </a>
+    </div>
+  </div>
+
+  <table class="table table-bordered table-hover mt-3">
+    <thead>
+      <tr class="text-center">
+        <th>Room ID</th>
+        <th>Room Type</th>
+        <th>Room Price</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let room of paginatedRooms">
+        <td>{{ room.id }}</td>
+        <td>{{ room.roomType }}</td>
+        <td>₹ {{ room.roomPrice }}</td>
+        <td>
+          <!-- <a [routerLink]="['/edit-room', room.id]" class="btn btn-info btn-sm">
+            <i class="fa fa-eye"></i>
+          </a> -->
+          <a [routerLink]="['/edit-room', room.id]" class="btn btn-warning btn-sm ml-1">
+            <i class="fa fa-edit"></i> edit
+          </a>
+          <button id="sideright" class="btn btn-danger btn-sm ml-2" (click)="deleteRoom(room.id)">
+            <i class="fa fa-trash"></i> delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <app-room-paginator
+    *ngIf="!isLoading && paginatedRooms.length > 0"
+    [currentPage]="currentPage"
+    [totalPages]="totalPages"
+    (pageChange)="onPageChange($event)">
+  </app-room-paginator>
+
+</section>
+

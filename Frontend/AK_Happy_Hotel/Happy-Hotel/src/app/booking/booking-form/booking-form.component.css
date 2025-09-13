@@ -1,0 +1,124 @@
+/* Wrapper for both form and summary */
+.booking-form-wrapper{
+  display: flex;
+  justify-content: left;
+  align-items: flex-start;
+  gap: 40px;
+  padding: 20px;
+}
+
+.booking-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 30px;
+  padding: 30px;
+  background-color: #f9fafb;
+  min-height: 100vh;
+}
+
+
+.booking-form-container {
+  flex: 1;
+  max-width: 600px;
+}
+
+/* Booking form container */
+.booking-form-container {
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 350px;
+  flex: 1 1 300px;
+}
+
+.booking-form-container h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #333;
+}
+
+/* Form layout */
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #333;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.form-group input:focus {
+  border-color: #3b82f6;
+}
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.form-row .form-group {
+  flex: 1 1 calc(50% - 5px);
+  min-width: 0;
+}
+
+/* Error message */
+.error {
+  color: #e11d48;
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+/* Button */
+.btn-book {
+  width: 40%;
+  background: #a23b72;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn-book:hover {
+  background: #ae3473;;
+}
+
+/* Readonly email field */
+.readonly-email {
+  background: #f1f1f1;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  color: #555;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+/* Booking Summary */
+.booking-summary {
+  flex: 1;
+  max-width: 500px;
+  background-color: #f3f3f3;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}

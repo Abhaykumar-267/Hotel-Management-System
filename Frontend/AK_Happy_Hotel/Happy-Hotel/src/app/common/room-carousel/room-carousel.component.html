@@ -1,0 +1,54 @@
+<section class="carousel-wrapper">
+  <div class="browse-link" (click)="goToBrowseAll()">Browse all rooms</div>
+  <!-- Filter UI -->
+  <div class="filter-container">
+    <label for="roomType">Filter by room type:</label>
+    <select id="roomType" [(ngModel)]="filter" (change)="applyFilter($event)">
+      <option value="" disabled selected>Select a room type to filter</option> 
+      <option *ngFor="let type of roomTypes" [value]="type">{{ type }}</option>
+    </select>
+    <button class="back-button" (click)="clearFilter()">Clear</button>
+    <button routerLink="/" class="btn btn-warning" style="font-weight: bold;">← Back</button>
+  </div>
+
+  <!-- Loading/Error -->
+  <div *ngIf="isLoading" class="loading">Loading rooms...</div>
+  <div *ngIf="errorMessage" class="error">Error: {{ errorMessage }}</div>
+
+  <!-- Room Cards -->
+  <div *ngIf="!isLoading && !errorMessage">
+    <div class="room-container">
+      <div class="room-card" *ngFor="let room of paginatedRooms">
+        <img [src]="'data:image/png;base64,' + room.photo" alt="Room Photo" />
+        <div class="room-details">
+          <h3>{{ room.roomType }}</h3>
+          <p class="price">₹{{ room.roomPrice }}/ <span>night</span></p>
+          <p class="description">Some room information goes here for the guest to read through</p>
+        </div>
+        <div class="room-action">
+          <button (click)="bookRoom(room.id)">Book Now</button>
+           <!-- <a class="btn btn-primary" [routerLink]="['/booking', room.id]">Book Now</a> -->
+            <!-- <button (click)="bookRoom(room.id)" [routerLink]="['/booking-page', room.id]">Book Now</button> -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Pagination -->
+    <!-- <div class="pagination"> -->
+    <!-- <app-room-paginator>
+      <button
+        *ngFor="let page of totalPagesArray; let idx = index"
+        [class.active]="currentPage === idx + 1"
+        (click)="changePage(idx + 1)">
+        {{ idx + 1 }}
+      </button>
+    </app-room-paginator> -->
+    </div>
+  <!-- </div> -->
+  <app-room-paginator
+    *ngIf="!isLoading && paginatedRooms.length > 0"
+    [currentPage]="currentPage"
+    [totalPages]="totalPages"
+    (pageChange)="onPageChange($event)">
+  </app-room-paginator>
+</section>

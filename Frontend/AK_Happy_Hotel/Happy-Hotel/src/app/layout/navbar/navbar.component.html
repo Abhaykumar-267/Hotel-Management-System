@@ -1,0 +1,79 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary px-5 shadow mt-3 sticky-top">
+  <div class="container-fluid">
+    <a routerLink="/" class="navbar-brand">
+      <span class="hotel-color">HAPPY Hotel</span>
+    </a>
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarScroll"
+      aria-controls="navbarScroll"
+      aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarScroll">
+      <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll">
+        <li class="nav-item">
+          <a id="line" class="nav-link" routerLink="/browse-all-rooms" routerLinkActive="active">
+            Browse all rooms
+          </a>
+        </li>
+        <li class="nav-item" *ngIf="isLoggedIn && userRole === 'ROLE_ADMIN'">
+          <a id="line" class="nav-link" routerLink="/admin" routerLinkActive="active">
+            Admin
+          </a>
+        </li>
+      </ul>
+
+      <!-- ✅ d-flex hata kar center alignment ensure ki -->
+      <ul class="navbar-nav ms-auto align-items-center"> <!-- ✅ -->
+        <li class="nav-item">
+          <a id="line" class="nav-link" routerLink="/find-booking" routerLinkActive="active">
+            Find my booking
+          </a>
+        </li>
+
+        <li class="nav-item dropdown" [class.show]="showAccount">
+          <!-- ✅ btn/btn-link/p-0 hata diya; nav-link padding use karo -->
+          <button
+            type="button"
+            class="nav-link dropdown-toggle bg-transparent border-0"  
+            (click)="toggleAccountDropdown($event)"
+            [attr.aria-expanded]="showAccount">
+            Account
+          </button>
+
+          <ul class="dropdown-menu dropdown-menu-end" [class.show]="showAccount">
+            <ng-container *ngIf="isLoggedIn; else loginLink">
+              <li>
+                    <app-logout></app-logout>
+              </li>
+            </ng-container>
+            <ng-template #loginLink>
+              <li>
+                <a class="dropdown-item" routerLink="/login" (click)="closeAccountDropdown()">
+                  Login
+                </a>
+              </li>
+            </ng-template>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- <div class="text-center mt-2" *ngIf="isLoggedIn && userName">
+  <div class="welcome-text">
+    <span>👋</span> Welcome, <strong>{{ userName }}</strong>
+  </div>
+</div> -->
+
+<div class="logout-container" *ngIf="logoutMessage">
+  <div class="logout-message">
+    ✅ {{ logoutMessage }} 🎉
+  </div>
+</div>

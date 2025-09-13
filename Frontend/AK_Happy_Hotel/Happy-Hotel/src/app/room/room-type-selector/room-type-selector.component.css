@@ -1,0 +1,7 @@
+.mt-2 {
+  margin-top: 0.5rem;
+}
+.input-group {
+  display: flex;
+  gap: 0.5rem;
+}

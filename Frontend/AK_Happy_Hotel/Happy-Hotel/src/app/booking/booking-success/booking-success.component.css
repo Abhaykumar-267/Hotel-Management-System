@@ -1,0 +1,48 @@
+.header-banner {
+  position: relative;
+  height: 200px;
+  background-image: url('https://media.istockphoto.com/id/1223426705/photo/young-asian-woman-organising-and-tidying-up-the-cushions-and-throw-on-the-sofa-in-the-living.jpg?s=612x612&w=0&k=20&c=fvqBPqujqEkgZ0aplPjkgX_XBcTAolPTUEFuSCBojcw=');
+  background-size: cover;
+  background-position: center center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.625);
+  overflow: hidden;
+}
+
+.header-banner .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.overlay-content {
+  position: relative;
+  text-align: center;
+  z-index: 1;
+}
+
+/* .hotel-color {
+  color: #d85bb7;
+} */
+
+/* Optional animation */
+.animated-texts h1 {
+  animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

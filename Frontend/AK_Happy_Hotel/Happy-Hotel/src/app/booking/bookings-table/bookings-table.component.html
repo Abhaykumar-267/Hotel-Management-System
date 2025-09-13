@@ -1,0 +1,69 @@
+<section class="p-4">
+    <div *ngIf="successMessage" class="alert alert-success" role="alert">
+    {{ successMessage }}
+  </div>
+  <!-- top filter + back -->
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">Filter bookings by date</h5>
+    <button class="btn btn-warning fw-bold" (click)="backToAdmin()">
+      ← Back to Admin Panel
+    </button>
+  </div>
+
+  <!-- manual date inputs instead of <DateSlider> -->
+  <div class="mb-4 d-flex gap-3">
+    <input type="date" class="form-control" #start>
+    <input type="date" class="form-control" #end>
+    <button class="btn btn-primary"
+            (click)="filterBookings(start.value, end.value)">Apply</button>
+    <button class="btn btn-secondary"
+            (click)="filterBookings('', '')">Clear</button>
+  </div>
+
+  <!-- table -->
+  <table class="table table-bordered table-hover shadow">
+    <thead>
+      <tr>
+        <th>S/N</th>
+        <th>Booking ID</th>
+        <th>Room number</th>
+        <th>Room Type</th>
+        <th>Check-In Date</th>
+        <th>Check-Out Date</th>
+        <th>Guest Name</th>
+        <th>Guest Email</th>
+        <th>Adults</th>
+        <th>Children</th>
+        <th>Total Guests</th>
+        <th>Confirmation Code</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+
+    <tbody class="text-center">
+      <tr *ngFor="let booking of filteredBookings; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ booking.id }}</td>
+        <td>{{ booking.room?.id }}</td>
+        <td>{{ booking.room?.roomType }}</td>
+        <td>{{ formatDate(booking.checkInDate) }}</td>
+        <td>{{ formatDate(booking.checkOutDate) }}</td>
+        <td>{{ booking.guestName }}</td>
+        <td>{{ booking.guestEmail }}</td>
+        <td>{{ booking.numOfAdults }}</td>
+        <td>{{ booking.numOfChildren }}</td>
+        <td>{{ booking.totalNumOfGuests }}</td>
+        <td>{{ booking.bookingConfirmationCode }}</td>
+        <td>
+          <button class="btn btn-danger btn-sm"
+                  (click)="cancel(booking.id)">Cancel</button>
+        </td>
+      </tr>
+
+      <!-- empty case -->
+      <tr *ngIf="filteredBookings.length === 0">
+        <td colspan="13" class="text-center">No bookings found for selected date</td>
+      </tr>
+    </tbody>
+  </table>
+</section>

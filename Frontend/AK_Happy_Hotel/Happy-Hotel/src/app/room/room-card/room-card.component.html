@@ -1,0 +1,22 @@
+<div class="room-card">
+  <div class="room-card-body">
+    <div class="room-image">
+      <a [routerLink]="['/book-room', room?.id]">
+        <img
+          [src]="'data:image/png;base64,' + room?.photo"
+          alt="Room Photo"
+        />
+      </a>
+    </div>
+    <div class="room-info">
+      <h4 class="hotel-color">{{ room?.roomType }}</h4>
+      <h5 class="room-price">₹{{ room?.roomPrice }}/ night</h5>
+      <p>Some room information goes here for the guest to read through</p>
+    </div>
+    <div class="room-action">
+      <a [routerLink]="['/book-room', room?.id]" class="btn btn-hotel btn-sm">
+        Book Now
+      </a>
+    </div>
+  </div>
+</div>

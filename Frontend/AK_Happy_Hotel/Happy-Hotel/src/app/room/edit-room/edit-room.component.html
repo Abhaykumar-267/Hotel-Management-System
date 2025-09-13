@@ -1,0 +1,95 @@
+<!-- <div class="container mt-5 mb-5">
+  <h3 class="text-center mb-5 mt-5">Edit Room</h3>
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+
+      <div *ngIf="successMessage" class="alert alert-success" role="alert">
+        {{ successMessage }}
+      </div>
+      <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+        {{ errorMessage }}
+      </div>
+
+      <form (ngSubmit)="handleSubmit()">
+        <div class="mb-3">
+          <label class="form-label hotel-color" for="roomType">Room Type</label>
+          <input type="text" class="form-control"
+                 [(ngModel)]="room.roomType"
+                 name="roomType" id="roomType">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label hotel-color" for="roomPrice">Room Price</label>
+          <input type="number" class="form-control"
+                 [(ngModel)]="room.roomPrice"
+                 name="roomPrice" id="roomPrice">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label hotel-color" for="photo">Photo</label>
+          <input type="file" class="form-control" id="photo"
+                 name="photo" required (change)="handleImageChange($event)">
+          <img *ngIf="imagePreview" class="mt-3"
+               [src]="'data:image/jpeg;base64,' + imagePreview"
+               alt="Room preview"
+               style="max-width: 400px; max-height: 400px">
+        </div>
+
+        <div class="d-grid gap-2 d-md-flex mt-2">
+          <a routerLink="/existing-rooms" class="btn btn-outline-info ml-5">back</a>
+          <button type="submit" class="btn btn-outline-warning">Edit Room</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div> -->
+
+
+
+<div class="container mt-5 mb-5">
+  <h3 class="text-center mb-5 mt-5">Edit Room</h3>
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+
+      <div *ngIf="successMessage" class="alert alert-success" role="alert">
+        {{ successMessage }}
+      </div>
+      <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+        {{ errorMessage }}
+      </div>
+
+      <form (ngSubmit)="handleSubmit()">
+        <div class="mb-3">
+          <label class="form-label hotel-color" for="roomType">Room Type</label>
+          <input type="text" class="form-control"
+                 [(ngModel)]="room.roomType"
+                 name="roomType" id="roomType">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label hotel-color" for="roomPrice">Room Price</label>
+          <input type="number" class="form-control"
+                 [(ngModel)]="room.roomPrice"
+                 name="roomPrice" id="roomPrice">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label hotel-color" for="photo">Photo</label>
+          <input type="file" class="form-control" id="photo"
+                 name="photo" required (change)="handleImageChange($event)">
+
+          <!-- ✅ updated preview (correct base64 binding) -->
+          <img *ngIf="imagePreview" class="mt-3"
+               [src]="'data:image/jpeg;base64,' + imagePreview"
+               alt="Room preview"
+               style="max-width: 400px; max-height: 400px">
+        </div>
+
+        <div class="d-grid gap-2 d-md-flex mt-2">
+          <a routerLink="/existing-rooms" class="btn btn-outline-info ml-5">back</a>
+          <button type="submit" class="btn btn-outline-warning">Edit Room</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

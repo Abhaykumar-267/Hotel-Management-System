@@ -1,0 +1,22 @@
+.room-info {
+  border: 1px solid #ddd;
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 10px;
+  height: 93%;
+  margin-top: 18px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  flex: 1 1 300px;
+}
+
+.room-info table {
+  margin-bottom: 10px;
+  flex: 1;
+  max-width: 600px;
+}
+
+.room-info img {
+  margin-bottom: 0px;
+  border-radius: 8px;
+  object-fit: cover;
+}

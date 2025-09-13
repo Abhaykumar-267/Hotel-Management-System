@@ -1,0 +1,31 @@
+<div class="container mt-5 d-flex flex-column justify-content-center align-items-center">
+  <h2 class="text-center mb-4">Find My Booking</h2>
+  <div *ngIf="isLoading">Finding your booking...</div>
+  <div *ngIf="error" class="text-danger">Error: {{ error }}</div>
+
+  <div *ngIf="bookingInfo.bookingConfirmationCode && !isDeleted" class="col-md-6 mt-4 mb-5">
+    <h3>Booking Information</h3>
+    <p class="text-success">Confirmation Code : {{ bookingInfo.bookingConfirmationCode }}</p>
+    <p>Room Number : {{ bookingInfo.room.id }}</p>
+    <p>Room Type : {{ bookingInfo.room.roomType }}</p>
+    <p>Check-in Date : {{ bookingInfo.checkInDate | date: 'MMM d, y' }}</p>
+    <p>Check-out Date : {{ bookingInfo.checkOutDate | date: 'MMM d, y' }}</p>
+    <p>Full Name : {{ bookingInfo.guestName }}</p>
+    <p>Email Address : {{ bookingInfo.guestEmail }}</p>
+    <p>Adults : {{ bookingInfo.numOfAdults }}</p>
+    <p>Children : {{ bookingInfo.numOfChildren }}</p>
+    <p>Total Guest : {{ bookingInfo.totalNumOfGuests }}</p>
+
+    <button (click)="handleBookingCancellation()" class="btn btn-danger">
+      Cancel Booking
+    </button>
+  </div>
+
+  <div *ngIf="!bookingInfo.bookingConfirmationCode && !error && !isLoading">
+    find booking...
+  </div>
+
+  <div *ngIf="isDeleted" class="alert alert-success mt-3 fade show">
+    {{ successMessage }}
+  </div>
+</div>

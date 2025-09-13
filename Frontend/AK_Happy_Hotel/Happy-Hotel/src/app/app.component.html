@@ -1,0 +1,10 @@
+
+
+
+<app-navbar></app-navbar>
+<ng-container *ngIf="!isLoginPage">
+  <app-home></app-home>
+  <app-room-search></app-room-search>
+  <app-hotel-service></app-hotel-service>
+</ng-container>
+<router-outlet></router-outlet>

@@ -1,0 +1,177 @@
+ 
+ .btn-hotel{
+  background-color: rgb(169, 77, 123);
+  color: #fff;
+  }
+  .btn-hotel:hover{
+  background-color: rgb(137, 127, 132);
+  color: #fff;
+  transition: 0.7s;
+  outline-color: transparent;
+  outline-style:solid;
+
+  }
+
+  .hotel-color{
+    color: rgb(169, 77, 123);
+  }
+  .room-price{
+    color:darkgoldenrod;
+    font-family: 'Courier New', Courier, monospace;
+    font-size:medium;
+  }
+  .vertical-rule{
+    border-left: '0.5px solid black';
+    height: '100vh'
+  }
+
+
+
+.parallax {
+  background-image: url('https://hmghospitality.com/wp-content/uploads/2017/01/HMG-Hotel-Lobby-1920x720.jpg');
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 50vh;
+
+  max-width: 85%;      /* or 85% */
+  margin: 0 auto;      /* center horizontally */
+  overflow: hidden;
+
+}
+
+.header {
+  position: relative;
+  height: 200px;
+  background-size: cover;
+  background-image: url('https://media.istockphoto.com/id/1223426705/photo/young-asian-woman-organising-and-tidying-up-the-cushions-and-throw-on-the-sofa-in-the-living.jpg?s=612x612&w=0&k=20&c=fvqBPqujqEkgZ0aplPjkgX_XBcTAolPTUEFuSCBojcw=');
+  background-position: center center;
+
+  max-width: 85%;      /* or 85% */
+  margin: 0 auto;      /* center horizontally */
+  overflow: hidden;
+}
+.header-title {
+  color: #fff;
+  font-size: 4rem;
+  align-content: center;
+}
+
+.parallax {
+  margin-top: 50px;
+  color: white;
+  text-shadow: 2px 2px black;
+}
+
+.animated {
+  animation-duration: 1s;
+}
+
+.animated-texts h1 {
+  animation: fadeInDown 1s ease-in-out;
+}
+
+.animated-texts p, h1, h2 {
+  animation: fadeInUp 1s ease-in-out;
+}
+
+@keyframes bounceIn {
+  from, 20%, 40%, 60%, 80%, to {
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    transform: translate3d(0,0,0);
+  }
+
+  40%, 60% {
+    animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+    transform: translate3d(0, -30px, 0);
+  }
+
+  70% {
+    animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+    transform: translate3d(0, -15px, 0);
+  }
+
+  90% {
+    transform: translate3d(0,-4px,0);
+  }
+}
+
+.bounceIn {
+  animation-name: bounceIn;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -50%, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 50%, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+/* Header overlay */
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  .overlay-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+     transform: translate(-50%, -50%);
+    color: #fff;
+    justify-content: flex-start;
+  }
+
+  .header-banner {
+  /* background-image:  url("./assets/images/services-1.jpg"); */
+   background-size: cover;
+  background-position: center;
+   position: relative;
+  height: 80vh;
+ }
+
+.header-banner {
+  position: relative;
+  height: 500px;
+}
+
+@media only screen and (max-width: 768px) {
+  .header-banner h1 {
+    font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .header-banner h1 {
+    font-size: 16px;
+  }
+}
+
+
+.footer {
+  background-color: #222;
+  color: #eee;
+  padding: 20px 0;
+  text-align: center;
+  font-size: 14px;
+}

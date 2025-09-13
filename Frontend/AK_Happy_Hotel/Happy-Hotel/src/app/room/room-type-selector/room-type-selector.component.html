@@ -1,0 +1,20 @@
+<div *ngIf="roomTypes.length > 0">
+  <select class="form-select" [value]="roomType" (change)="onSelectChange($any($event.target).value)">
+
+    <option value="">Select a room type</option>
+    <option value="Add New">Add New</option>
+    <option *ngFor="let type of roomTypes" [value]="type">{{ type }}</option>
+  </select>
+
+  <div class="mt-2" *ngIf="showNewRoomTypeInput">
+    <div class="input-group">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Enter New Room Type"
+        [(ngModel)]="newRoom"
+      />
+      <button type="button" class="btn btn-primary" (click)="addNewRoomType()">Add</button>
+    </div>
+  </div>
+</div>

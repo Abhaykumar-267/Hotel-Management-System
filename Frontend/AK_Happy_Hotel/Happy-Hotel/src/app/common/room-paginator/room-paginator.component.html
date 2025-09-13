@@ -1,0 +1,17 @@
+<nav aria-label="Pagination">
+  <ul class="pagination justify-content-center">
+    <li *ngFor="let page of pages; let idx = index"
+        class="page-item"
+        [class.active]="page === currentPage">
+      <button class="page-link"
+              (click)="onClick(page)"
+              [ngStyle]="{
+                cursor: (page === '...forward' || page === '...back') ? 'pointer' : 'default',
+                position: (page === currentPage) ? 'relative' : 'static',
+                zIndex: (page === currentPage) ? 0 : 'auto'
+              }">
+        {{ (page === '...forward' || page === '...back') ? '...' : page }}
+      </button>
+    </li>
+  </ul>
+</nav>

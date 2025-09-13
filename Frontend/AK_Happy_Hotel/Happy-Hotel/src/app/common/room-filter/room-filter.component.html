@@ -1,0 +1,146 @@
+
+<!-- <div class="find-booking-container">
+  <h2>Find My Booking</h2>
+
+  <div class="input-group">
+    <input
+      type="text"
+      placeholder="Enter the booking confirmation code"
+      [(ngModel)]="bookingCode"
+      (keydown.enter)="findBooking()"
+    />
+    <button (click)="findBooking()">Find booking</button>
+    <button class="back-button" routerLink="/">Back</button>
+  </div>
+
+  <div class="result-text" *ngIf="loading">
+    find booking...
+  </div>
+</div> -->
+
+<!-- <div class="filter-container">
+  <label for="roomTypeFilter" class="filter-label">Filter rooms by type</label>
+
+  <select
+    id="roomTypeFilter"
+    class="filter-select"
+    [(ngModel)]="filter"
+    (change)="handleSelectChange($event)">
+    <option value="">Select a room type to filter...</option>
+    <option *ngFor="let type of roomTypes" [value]="type">{{ type }}</option>
+  </select>
+
+  <button class="clear-btn" (click)="clearFilter()">Clear Filter</button>
+</div> -->
+
+
+
+<!-- 
+<div class="find-booking-container">
+  <h2>Find My Booking</h2>
+
+  
+  <div class="input-group">
+    <input
+      type="text"
+      placeholder="Enter the booking confirmation code"
+      [(ngModel)]="bookingCode"
+      (keydown.enter)="findBooking()"
+    />
+    <button (click)="findBooking()">Find booking</button>
+    <button class="back-button" routerLink="/">Back</button>
+  </div>
+
+  
+  <div *ngIf="isLoading" class="result-text">
+    Finding your booking...
+  </div>
+
+  
+  <div *ngIf="error" class="text-danger">
+    {{ error }}
+  </div>
+
+  
+  <div *ngIf="bookingInfo.bookingConfirmationCode && !isDeleted" class="col-md-6 mt-4 mb-5">
+    <h3>Booking Information</h3>
+    <p class="text-success">Confirmation Code : {{ bookingInfo.bookingConfirmationCode }}</p>
+    <p>Room Number : {{ bookingInfo.room.id }}</p>
+    <p>Room Type : {{ bookingInfo.room.roomType }}</p>
+    <p>Check-in Date : {{ bookingInfo.checkInDate | date: 'MMM d, y' }}</p>
+    <p>Check-out Date : {{ bookingInfo.checkOutDate | date: 'MMM d, y' }}</p>
+    <p>Full Name : {{ bookingInfo.guestName }}</p>
+    <p>Email Address : {{ bookingInfo.guestEmail }}</p>
+    <p>Adults : {{ bookingInfo.numOfAdults }}</p>
+    <p>Children : {{ bookingInfo.numOfChildren }}</p>
+    <p>Total Guest : {{ bookingInfo.totalNumOfGuests }}</p>
+
+    <button (click)="handleBookingCancellation()" class="btn btn-danger">
+      Cancel Booking
+    </button>
+  </div>
+
+  
+  <div *ngIf="isDeleted" class="alert alert-success mt-3 fade show">
+    {{ successMessage }}
+  </div>
+</div> -->
+
+
+
+<div class="find-booking-container">
+  <h2 style="font-weight: bold;">Find My Booking</h2>
+
+  <!-- Input and Button -->
+  <div class="input-group">
+    <input
+      type="text"
+      placeholder="Enter the booking confirmation code"
+      [(ngModel)]="bookingCode"
+      (keydown.enter)="findBooking()"
+    />
+    <button class="primary-btn" (click)="findBooking()">Find booking</button>
+    <button routerLink="/" class="btn btn-warning" style="font-weight: bold;">← Back</button>
+  </div>
+
+  <!-- Loading -->
+  <div *ngIf="isLoading" class="result-text">
+    Finding your booking...
+  </div>
+
+  <!-- Error -->
+  <div *ngIf="error" class="error-text">
+    {{ error }}
+  </div>
+
+  <!-- Booking Information -->
+  <div *ngIf="bookingInfo.bookingConfirmationCode && !isDeleted" class="booking-card">
+    <h3>Booking Information</h3>
+    <p class="success-text">Confirmation Code : {{ bookingInfo.bookingConfirmationCode }}</p>
+    <p>Room Number : {{ bookingInfo.room.id }}</p>
+    <p>Room Type : {{ bookingInfo.room.roomType }}</p>
+    <p>Check-in Date : {{ bookingInfo.checkInDate | date: 'MMM d, y' }}</p>
+    <p>Check-out Date : {{ bookingInfo.checkOutDate | date: 'MMM d, y' }}</p>
+    <p>Full Name : {{ bookingInfo.guestName }}</p>
+    <p>Email Address : {{ bookingInfo.guestEmail }}</p>
+    <p>Adults : {{ bookingInfo.numOfAdults }}</p>
+    <p>Children : {{ bookingInfo.numOfChildren }}</p>
+    <p>Total Guest : {{ bookingInfo.totalNumOfGuests }}</p>
+
+    <!-- Cancel Button -->
+    <button (click)="handleBookingCancellation()" class="danger-btn">
+      Cancel Booking
+    </button>
+
+    <!-- Login Required Message -->
+    <div *ngIf="showLoginMessage" class="error-text">
+      {{ loginMessage }}
+    </div>
+  </div>
+
+  <!-- Success Message -->
+  <div *ngIf="isDeleted" class="success-alert">
+    {{ successMessage }}
+  </div>
+</div>
+

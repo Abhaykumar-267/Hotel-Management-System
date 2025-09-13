@@ -1,0 +1,123 @@
+<div class="container">
+  <p *ngIf="errorMessage" class="text-danger">{{ errorMessage }}</p>
+  <p *ngIf="message" class="text-danger">{{ message }}</p>
+
+  <div *ngIf="user; else loading">
+    <div class="card p-5 mt-5" style="background-color: whitesmoke">
+      <h4 class="card-title text-center">User Information</h4>
+      <div class="card-body">
+        <div class="col-md-10 mx-auto">
+          <div class="card mb-3 shadow">
+            <div class="row g-0">
+              <div class="col-md-2">
+                <div class="d-flex justify-content-center align-items-center mb-4">
+                  <img
+                    src="https://themindfulaimanifesto.org/wp-content/uploads/2020/09/male-placeholder-image.jpeg"
+                    alt="Profile"
+                    class="rounded-circle"
+                    style="width: 150px; height: 150px; object-fit: cover"
+                  />
+                </div>
+              </div>
+
+              <div class="col-md-10">
+                <div class="card-body">
+                  <div class="form-group row">
+                    <label class="col-md-2 col-form-label fw-bold">ID :</label>
+                    <div class="col-md-10">
+                      <p class="card-text">{{ user.id }}</p>
+                    </div>
+                  </div>
+                  <hr />
+
+                  <div class="form-group row">
+                    <label class="col-md-2 col-form-label fw-bold">First Name :</label>
+                    <div class="col-md-10">
+                      <p class="card-text">{{ user.firstName }}</p>
+                    </div>
+                  </div>
+                  <hr />
+
+                  <div class="form-group row">
+                    <label class="col-md-2 col-form-label fw-bold">Last Name :</label>
+                    <div class="col-md-10">
+                      <p class="card-text">{{ user.lastName }}</p>
+                    </div>
+                  </div>
+                  <hr />
+
+                  <div class="form-group row">
+                    <label class="col-md-2 col-form-label fw-bold">Email :</label>
+                    <div class="col-md-10">
+                      <p class="card-text">{{ user.email }}</p>
+                    </div>
+                  </div>
+                  <hr />
+
+                  <div class="form-group row">
+                    <label class="col-md-2 col-form-label fw-bold">Role :</label>
+                    <div class="col-md-10">
+                      <ul class="list-unstyled">
+                        <li *ngFor="let role of user.roles" class="card-text">
+                          {{ role.name }}
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <button>Edit</button>
+
+          <h4 class="card-title text-center">Booking History</h4>
+
+          <table
+            *ngIf="bookings.length > 0; else noBookings"
+            class="table table-bordered table-hover shadow"
+          >
+            <thead>
+              <tr>
+                <th scope="col">Booking ID</th>
+                <th scope="col">Room Number</th>
+                <th scope="col">Room Type</th>
+                <th scope="col">Check In Date</th>
+                <th scope="col">Check Out Date</th>
+                <th scope="col">Confirmation Code</th>
+                <th scope="col">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let booking of bookings">
+                <td>{{ booking.id }}</td>
+                <td>{{ booking.room.id }}</td>
+                <td>{{ booking.room.roomType }}</td>
+                <td>{{ formatDate(booking.checkInDate) }}</td>
+                <td>{{ formatDate(booking.checkOutDate) }}</td>
+                <td>{{ booking.bookingConfirmationCode }}</td>
+                <td class="text-success">On-going</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <ng-template #noBookings>
+            <p>You have not made any bookings yet.</p>
+          </ng-template>
+
+          <div class="d-flex justify-content-center">
+            <div class="mx-2">
+              <button class="btn btn-danger btn-sm" (click)="handleDeleteAccount()">
+                Close account
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #loading>
+    <p>Loading user data...</p>
+  </ng-template>
+</div>
